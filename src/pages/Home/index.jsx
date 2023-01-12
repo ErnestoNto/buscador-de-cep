@@ -19,7 +19,9 @@ const Buscador = () => {
 
   return (
     <article className='container'>
-        <h1>Buscador de CEP</h1>
+        {localidade ? (
+          <>
+      <h1>Buscador de CEP</h1>
       <form className='form' onSubmit={handleBusca}>
         <input 
         type="number"
@@ -39,6 +41,11 @@ const Buscador = () => {
             </>
         ) : <span>Cidade</span>}
       </div>
+          </>
+        ) : 
+        (<>
+
+        </>)}
     </article>
   )
 }
