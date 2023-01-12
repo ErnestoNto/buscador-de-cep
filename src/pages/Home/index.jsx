@@ -19,8 +19,6 @@ const Buscador = () => {
 
   return (
     <article className='container'>
-        {localidade ? (
-          <>
       <h1>Buscador de CEP</h1>
       <form className='form' onSubmit={handleBusca}>
         <input 
@@ -31,7 +29,8 @@ const Buscador = () => {
         />
         <button type='submit'>Buscar</button>
       </form>
-      <div className='localidade'>
+      {Object.keys(localidade).length > 0 ? (
+        <div className='localidade'>
         <h3>Cidade: {localidade.localidade}/{localidade.uf}</h3>
 
         {localidade.bairro !== '' ? (
@@ -41,11 +40,10 @@ const Buscador = () => {
             </>
         ) : <span>Cidade</span>}
       </div>
-          </>
-        ) : 
-        (<>
-
-        </>)}
+      ) : (
+        <>
+        </>
+      )}
     </article>
   )
 }
